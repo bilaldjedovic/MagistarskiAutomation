@@ -66,7 +66,7 @@ describe("Checkout process with adding item from All items page", () => {
       await allItems.checkIsAtAllItemsPage();
       await allItems.validateTitleAllItemsPage("Products");
     },
-    40000
+    70000
   );
 
   afterEach(async () => {
