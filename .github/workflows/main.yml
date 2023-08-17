@@ -6,6 +6,11 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+      - name: Install Google Chrome
+        run: |
+          # Download Chrome
+          Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_win32.zip" -OutFile "chrome-win32.zip"
+          Expand-Archive -Path "chrome-win32.zip" -DestinationPath C:\chrome -Force
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
@@ -17,6 +22,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
+
       - name: Install modules
         run: npm install
       - name: Run tests
