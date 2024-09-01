@@ -6,12 +6,12 @@ import Base from "./base-page";
 export default class ProductPage extends Base {
 
     private productDetails = By.className('inventory_details_container');
-    private removeButton = By.id("remove-sauce-labs-backpack");
+    private removeButton = By.id("remove");
     private sauceLabsBackpack = By.id('item_4_title_link');
-    private addToCart = By.id('add-to-cart-sauce-labs-backpack');
+    private addToCart = By.id('add-to-cart');
     protected cartIcon = By.id('shopping_cart_container');
     private itemTitles = By.className('inventory_item_name');
-    private removeSauceLabsBackpack = By.id("remove-sauce-labs-backpack");
+    private removeSauceLabsBackpack = By.id("remove");
 
     constructor() {
         super();

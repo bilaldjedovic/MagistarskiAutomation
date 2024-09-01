@@ -6,7 +6,7 @@ const url = {
     checkoutFormURL: "/checkout-step-one.html",
     checkoutOverviewURL: "/checkout-step-two.html",
     checkoutCompleteURL: "/checkout-complete.html",
-    twitterURL: "twitter.com",
+    twitterURL: "x.com",
     facebookURL: "facebook.com",
     linkedinURL: "linkedin.com",
     aboutPageURL: "saucelabs.com"

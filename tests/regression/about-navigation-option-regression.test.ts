@@ -31,7 +31,7 @@ describe('Validating "About" page, in navigation', () => {
       await driverInstance.navigateBack();
 
       await allItems.checkIsAtAllItemsPage();
-      await allItems.closeNavigation();
+
     },
     40000
   );
