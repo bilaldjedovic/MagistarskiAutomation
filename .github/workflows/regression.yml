@@ -8,45 +8,21 @@ jobs:
     steps:
       - name: Install Google Chrome
         run: |
-          # Download and install latest Chrome
-          $url = "https://dl.google.com/tag/s/dl/chrome/install/latest/crx_google_chrome_enterprise_bundle.zip"
-          $path = "$env:TEMP\chrome.zip"
-          Invoke-WebRequest -Uri $url -OutFile $path
-          Expand-Archive -Path $path -DestinationPath "C:\chrome" -Force
-          Start-Process -FilePath "msiexec.exe" -ArgumentList "/qn /i C:\chrome\googlechromenterprisebundle.msi" -Wait
-          Remove-Item -Path $path -Force
-
-      - name: Get Chrome Version
-        id: chrome_version
-        run: |
-          $chromeVersion = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe').'(default)').split(' ')[-1]
-          echo "::set-output name=version::$chromeVersion"
-
-      - name: Download ChromeDriver
-        uses: actions/download-artifact@v2
-        with:
-          name: chromedriver-${{ steps.chrome_version.outputs.version }}
-          path: C:\chromedriver
-
+          # Download Chrome
+          Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_win32.zip" -OutFile "chrome-win32.zip"
+          Expand-Archive -Path "chrome-win32.zip" -DestinationPath C:\chrome -Force
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
           distribution: "adopt"
           java-version: "11"
-
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-
       - name: Install modules
         run: npm install
-
       - name: Run tests
-        env:
-          CHROME_DRIVER_PATH: C:\chromedriver\chromedriver.exe
-        run: |
-          npm test -- tests/regression
+        run: npm test -- tests/regression
