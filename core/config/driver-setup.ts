@@ -3,6 +3,7 @@ import { Builder, WebDriver } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome";
 
 const driverPath = "drivers/chromedriver";
+
 const options = new chrome.Options();
 
 export default class DriverSetup {

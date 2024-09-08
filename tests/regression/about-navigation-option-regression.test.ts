@@ -15,6 +15,7 @@ describe('Validating "About" page, in navigation', () => {
     allItems = new AllItems();
 
     driverInstance.openURL(urls.sauceLabsURL);
+
   });
 
   test.each(users)(
