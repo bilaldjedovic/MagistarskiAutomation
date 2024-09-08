@@ -14,9 +14,9 @@ jobs:
           Expand-Archive -Path "chrome-win32.zip" -DestinationPath C:\chrome -Force
       - name: Set up Java
         uses: actions/setup-java@v2
-        
         with:
           distribution: "adopt"
+          
           java-version: "11"
       - name: Checkout
         uses: actions/checkout@v2

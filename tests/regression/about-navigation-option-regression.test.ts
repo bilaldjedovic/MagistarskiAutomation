@@ -15,9 +15,11 @@ describe('Validating "About" page, in navigation', () => {
     allItems = new AllItems();
 
     driverInstance.openURL(urls.sauceLabsURL);
+
   });
 
   test.each(users)(
+
     "Validating if user can open 'About' page from 'All items' page",
     async (user) => {
       await loginPage.checkIsLoginPage();
