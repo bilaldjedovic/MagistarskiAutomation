@@ -11,6 +11,7 @@ export default class DriverSetup {
   private driver: WebDriver;
 
   private constructor() {
+
     this.driver = this.driverBuildUp();
   }
 
